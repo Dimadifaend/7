@@ -57,41 +57,60 @@
 
 ### Блок-схема
 
+<img width="1169" height="1041" alt="drawio" src="https://github.com/user-attachments/assets/00124fd0-35fc-4d8a-9372-2e7e4eaf74be" />
 
 
 
 ## 2. Реализация программы
 
-    #include <stdio.h>
-    #include <locale.h>
-    
-    int main()
-    {
-        setlocale(LC_ALL, "RUS");
-        int n;
-        double sum = 0.0;
-    
-        printf("Введите значение n: ");
-        scanf("%d", &n);
-    
-        for (int i = 1; i <= n; i++)
-        {
-            double del = (2 * i + 1);
-            double term = 1.0 / (del * del);
-            sum += term;
+            #include <stdio.h>
+        #include <locale.h>
+        
+        int main() {
+            setlocale(LC_ALL, "RUS");
+            int kop;
+            int rub;
+            int cet;
+            printf("введите стоимость в копейках: ");
+            scanf("%d", &cet);
+            rub = cet / 100;
+            kop = cet % 100;
+            char* cklon;
+            switch (kop)
+            {
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+                cklon = "копеек";
+                break;
+            default:
+                switch (kop % 10)
+                {
+                case 1:
+                    cklon = "копейка";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    cklon = "копейки";
+                    break;
+                default:
+                    cklon = "копеeк";
+                    break;
+        
+                }
+            }
+            printf("%d рубл. ", rub);
+            printf("%d %s", kop, cklon);
+        
         }
-    
-        printf("Сумма ряда для n = %d: %.6f\n", n, sum);
-    
-        return 0;
-    }
 
 ## 3. Результаты работы программы
 
-    Введите значение n: 5
-    Сумма ряда для n = 5: 0,192129
-    
-    C:\Users\Олег\source\repos\Project5\x64\Debug\Project5.exe (процесс 13132) завершил работу с кодом 0 (0x0).
+    введите стоимость в копейках: 125
+    1 рубл. 25 копеeк
+    C:\Users\Олег\source\repos\Project5\x64\Debug\Project5.exe (процесс 10324) завершил работу с кодом 0 (0x0).
     Нажмите любую клавишу, чтобы закрыть это окно:
 
 ## 4. Информация о разработчике
